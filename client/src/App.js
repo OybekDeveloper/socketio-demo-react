@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:4000");
+const socket = io.connect("https://socketio-demo-react.onrender.com/");
 
 function App() {
   const [message, setMessage] = useState("");
@@ -11,7 +11,7 @@ function App() {
   const handleJoinRoom = (e) => {
     e.preventDefault();
     if (room !== "") {
-      socket.emit("join_room", { room });
+      socket.emit("join_room", room);
       setResive([]);
 
     }
