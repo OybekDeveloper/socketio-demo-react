@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import logo from "./logo.svg";
 import notificationSound from "./sound/notification-sound.mp3";
-const socket = io.connect("http://localhost:4000");
+const socket = io.connect("https://socketio-demo-react.onrender.com");
 function App() {
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
