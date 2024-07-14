@@ -10,7 +10,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://socketio-demo-react.vercel.app/  ",
+    origin: "https://socketio-demo-react.vercel.app/",
     methods: ["GET", "POST"],
   },
 });
