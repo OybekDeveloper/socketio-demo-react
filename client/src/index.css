@@ -3,3 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  background-color: #0a0812;
+}
+
+.logo{
+  /* padding: 7px;
+  border-radius: 7px;
+  border: 1px solid #749FF6;
+  background: linear-gradient(180deg, rgba(40, 74, 144, 0.35) 0%, rgba(40, 74, 144, 0.14) 100%);
+  box-shadow: 0px 0px 6.563px 0px rgba(0, 0, 0, 0.40);
+   */
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-
-const socket = io.connect("https://socketio-demo-react.onrender.com/");
-
+import logo from "./logo.svg";
+import notificationSound from "./sound/notification-sound.mp3";
+const socket = io.connect("http://localhost:4000");
 function App() {
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
@@ -13,7 +13,6 @@ function App() {
     if (room !== "") {
       socket.emit("join_room", room);
       setResive([]);
-
     }
   };
 
@@ -28,6 +27,8 @@ function App() {
   useEffect(() => {
     const receiveMessageHandler = (data) => {
       setResive((prev) => [...prev, data.message]);
+      const sound = new Audio(notificationSound);
+      sound.play();
     };
 
     socket.on("receive_message", receiveMessageHandler);
@@ -79,12 +80,13 @@ function App() {
           </button>
         </div>
       </form>
-      <div className="container">
+      <div className="container text-white">
         <h1>Messages</h1>
         {resive.map((msg, index) => (
           <p key={index}>{msg}</p>
         ))}
       </div>
+      <img className="logo" src={logo} alt="logo" />
     </div>
   );
 }
